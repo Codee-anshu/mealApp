@@ -1,7 +1,7 @@
-import { FlatList, Text, View, } from 'react-native';
+
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import { useLayoutEffect } from 'react';
-import MealItem from '../components/MealItem';
+import MealList from '../components/MealList';
 
 
 const MealOverviewScreen = ({ route, navigation }) => {
@@ -18,36 +18,7 @@ const MealOverviewScreen = ({ route, navigation }) => {
     }, [catId, navigation])
 
 
-    const pressHandler = (itemdata) => {
-        const item = itemdata. item
-        const mealDetails ={
-            id:item.id,
-            title:item.title,
-            imageUrl:item.imageUrl,
-            duration:item.duration,
-            affordability:item.affordability,
-            complexity:item.complexity,
-            ingredients:item.ingredients,
-            steps:item.steps,
-            isVegan:item.isVegan,
-            isGlutenFree:item.isGlutenFree,
-            isVegetarian:item.isVegetarian,
-            isLactoseFree:item.isLactoseFree
-        }
-        return <MealItem {...mealDetails}/>
-    }
-
-    return (
-        <>
-        <View style={{flex:1}}>   
-        <FlatList
-                data={selectMeal}
-                keyExtractor={(item) => item.id}
-                renderItem={pressHandler}
-            />
-        </View>
-        </>
-    )
+    return <MealList listData={selectMeal}/>
 
 }
 

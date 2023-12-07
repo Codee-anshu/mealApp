@@ -4,15 +4,12 @@ import { Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
-const IconComponent = () => {
+const IconComponent = ({name, onPress}) => {
 const navigation = useNavigation();
 
-    const pressHandler =()=>{
-       navigation.navigate('All Products')
-    }
     return (
-        <Pressable onPress={pressHandler}>
-            <Icon name='home' size={24} color='black'/>
+        <Pressable onPress={onPress}>
+            <Icon name={name} size={24} color='black'/>
         </Pressable>
     )
 }
